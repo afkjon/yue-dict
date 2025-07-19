@@ -4,5 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
-  ]
+  ],
+  nitro: {
+    preset: 'github-pages'
+  },
+  app: {
+    baseURL: '/yue-dict/', // Replace with your GitHub repo name
+    buildAssetsDir: 'assets/'
+  },
+  ssr: false // Enable SPA mode for GitHub Pages
 })
+

@@ -16,7 +16,7 @@ const isSearching = ref(false)
 let dictionaryData = {}
 
 // Fetch dictionary data from API
-const { data } = await $fetch('/api/dictionary')
+const { data } = await $fetch('/public/dictionary.json')
 
 if (data) {
   dictionaryData = data
