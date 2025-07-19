@@ -58,13 +58,6 @@ const clearSearch = () => {
     <header class="container mx-auto px-6 py-8">
       <nav class="flex justify-between items-center">
         <div class="text-2xl font-bold text-gray-800">粵語字典</div>
-        <div class="space-x-6">
-          <a href="#search" class="text-gray-600 hover:text-gray-800">Search</a>
-          <a href="#about" class="text-gray-600 hover:text-gray-800">About</a>
-          <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
-            Learn More
-          </button>
-        </div>
       </nav>
     </header>
 

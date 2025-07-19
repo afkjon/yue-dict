@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "build:dict": "node scripts/build-dictionary.js",
-    "build": "npm run build:dict && nuxt build --preset=github-pages",
+    "build": "pnpm run build:dict && nuxt build --preset=github-pages",
     "dev": "nuxt dev",
-    "generate": "npm run build:dict && nuxt generate --preset=github-pages",
+    "generate": "pnpm run build:dict && nuxt generate --preset=github-pages",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

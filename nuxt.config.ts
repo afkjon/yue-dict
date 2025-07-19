@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     baseURL: '/yue-dict/', // Replace with your GitHub repo name
     buildAssetsDir: 'assets/'
   },
-  ssr: false // Enable SPA mode for GitHub Pages
+  ssr: false, // Enable SPA mode for GitHub Pages,
+  runtimeConfig: {
+    public: {
+      dictionaryApiBase: process.env.NUXT_PUBLIC_DICTIONARY_API_BASE
+    }
+  }
 })
 
