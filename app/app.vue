@@ -74,7 +74,7 @@ const clearSearch = () => {
         Cantonese Dictionary
       </h1>
       <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-        Discover the beauty of Cantonese language. Search for words, phrases, and their meanings.
+        Search for Cantonese words, phrases, and their meanings.
       </p>
       
       <!-- Search Box -->
@@ -84,7 +84,7 @@ const clearSearch = () => {
             v-model="searchQuery"
             @input="searchDictionary"
             type="text"
-            placeholder="Search in Cantonese, Simplified, Pingyin, Jyutping, or Definitions..."
+            placeholder="Search in Cantonese, Simplified, Pingyin, Jyutping, or by English Definitions..."
             class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-full focus:border-red-500 focus:outline-none shadow-lg"
           />
           <button
@@ -136,7 +136,3 @@ const clearSearch = () => {
     </footer>
   </div>
 </template>
-
-<style scoped>
-/* Add any custom styles here if needed */
-</style>
