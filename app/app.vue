@@ -20,6 +20,7 @@ const searchDictionary = async () => {
     return
   }
 
+  // Check if search query is alphanumeric to determine if we should search
   if (searchQuery.value.length == 1 
     && searchQuery.value.toLowerCase().charCodeAt(0) > 96 
     && searchQuery.value.toLowerCase().charCodeAt(0) < 123) {
@@ -30,7 +31,7 @@ const searchDictionary = async () => {
   if (searchQuery.value.length == 2) {
     var firstChar = searchQuery.value.toLowerCase().charCodeAt(0) 
     var secondChar = searchQuery.value.toLowerCase().charCodeAt(1) 
-    // lower alpha (a-z)
+    
     if ((firstChar > 96 && firstChar < 123) 
       && (secondChar > 96 && secondChar < 123)) { 
       searchResults.value = []
@@ -39,9 +40,6 @@ const searchDictionary = async () => {
   }
 
   isSearching.value = true
-  
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 300))
   
   const query = searchQuery.value.toLowerCase().trim()
   searchResults.value = Object.values(dictionaryData).filter(entry => 
