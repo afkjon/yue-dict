@@ -13,10 +13,5 @@ export default defineNuxtConfig({
     buildAssetsDir: 'assets/'
   },
   ssr: false, // Enable SPA mode for GitHub Pages,
-  runtimeConfig: {
-    public: {
-      dictionaryApiBase: process.env.NUXT_PUBLIC_DICTIONARY_API_BASE
-    }
-  }
 })
 

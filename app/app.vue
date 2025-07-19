@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import dictionaryData from './dictionary.json'
 
-// SEO and meta tags
 useHead({
   title: 'Cantonese Dictionary - Learn Cantonese Words & Phrases',
   meta: [
@@ -13,14 +13,6 @@ useHead({
 const searchQuery = ref('')
 const searchResults = ref([])
 const isSearching = ref(false)
-let dictionaryData = {}
-
-// Fetch dictionary data from API
-const { data } = await $fetch('/public/dictionary.json')
-
-if (data) {
-  dictionaryData = data
-}
 
 const searchDictionary = async () => {
   if (!searchQuery.value.trim()) {
@@ -28,12 +20,29 @@ const searchDictionary = async () => {
     return
   }
 
+  if (searchQuery.value.length == 1 
+    && searchQuery.value.toLowerCase().charCodeAt(0) > 96 
+    && searchQuery.value.toLowerCase().charCodeAt(0) < 123) {
+    searchResults.value = []
+    return
+  }
+
+  if (searchQuery.value.length == 2) {
+    var firstChar = searchQuery.value.toLowerCase().charCodeAt(0) 
+    var secondChar = searchQuery.value.toLowerCase().charCodeAt(1) 
+    // lower alpha (a-z)
+    if ((firstChar > 96 && firstChar < 123) 
+      && (secondChar > 96 && secondChar < 123)) { 
+      searchResults.value = []
+      return
+    }
+  }
+
   isSearching.value = true
   
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 300))
   
-  // Search logic
   const query = searchQuery.value.toLowerCase().trim()
   searchResults.value = Object.values(dictionaryData).filter(entry => 
     entry.traditional?.includes(query) ||
@@ -133,5 +142,3 @@ const clearSearch = () => {
 <style scoped>
 /* Add any custom styles here if needed */
 </style>
-
-
