@@ -1,6 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
-import dictionaryData from './dictionary.json'
+import { useHead } from '#imports'
+import dictionaryData from './dictionary.json' with { type: 'Dictionary' }
+import { type Dictionary, type DictionaryEntry } from '../types/dictionary'
 
 useHead({
   title: 'Cantonese Dictionary - Learn Cantonese Words & Phrases',
@@ -9,10 +11,9 @@ useHead({
   ]
 })
 
-// Search functionality
-const searchQuery = ref('')
-const searchResults = ref([])
-const isSearching = ref(false)
+const searchQuery = ref<string>('')
+const searchResults = ref<DictionaryEntry[]>([])
+const isSearching = ref<boolean>(false)
 
 const searchDictionary = async () => {
   if (!searchQuery.value.trim()) {

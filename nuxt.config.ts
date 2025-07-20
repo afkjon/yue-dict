@@ -1,6 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: '2025-07-20',
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
@@ -13,5 +12,10 @@ export default defineNuxtConfig({
     buildAssetsDir: 'assets/'
   },
   ssr: false, // Enable SPA mode for GitHub Pages,
+  unhead: {
+    legacy: true
+  },
+  typescript: {
+    typeCheck: true
+  }
 })
-
